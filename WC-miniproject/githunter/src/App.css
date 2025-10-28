@@ -1,0 +1,232 @@
+
+:root {
+  --primary: #238636;
+  --primary-dark: #1f7331;
+  --surface-light: #ffffff;
+  --surface-dark: #2b2f36;
+  --text-light: #f7fafc;
+  --text-dark: #2d3748;
+  --muted-light: #a0aec0;
+  --muted-dark: #7a869a;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.text-primary {
+    color: #238636;
+}
+.header-title-text {
+    color: #2d3748; /* dark gray */
+}
+
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f8fa;
+  color: var(--text-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #0d1117;
+  color: var(--text-light);
+}
+
+/* Header */
+.header-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-title-text {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dark-mode .header-title-text {
+  color: var(--text-light);
+}
+
+.header-container p {
+  color: var(--muted-light);
+}
+
+/* Dark Mode Toggle */
+button.dark-mode-toggle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--surface-light);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, background-color 0.3s;
+}
+button.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+.dark-mode button.dark-mode-toggle {
+  background-color: var(--surface-dark);
+  color: #facc15;
+}
+
+/* Search Input */
+.search-section {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.search-section input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.search-section input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.25);
+}
+.dark-mode .search-section input {
+  background-color: #161b22;
+  border-color: #30363d;
+  color: var(--text-light);
+}
+
+/* Search Button */
+.search-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.search-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Profile Card */
+.github-card {
+  background-color: var(--surface-light);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 800px;
+  transition: all 0.3s ease;
+}
+.github-card:hover {
+  transform: translateY(-4px);
+}
+.dark-mode .github-card {
+  background-color: #161b22;
+}
+
+/* Profile Header */
+.profile-header-bg {
+  background: linear-gradient(135deg, #238636, #19692c);
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.profile-header-bg img {
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-right: 1.25rem;
+  width: 96px;
+  height: 96px;
+}
+
+/* Bio & Details */
+.repo-card {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.dark-mode .repo-card {
+  background-color: #21262d;
+}
+
+/* Progress Bar */
+#repo-progress {
+  transition: width 0.6s ease;
+}
+
+/* Footer */
+.profile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f7fafc;
+}
+.dark-mode .profile-footer {
+  background-color: #161b22;
+  border-top: 1px solid #30363d;
+}
+.profile-footer a {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.profile-footer a:hover {
+  background-color: var(--primary-dark);
+}
+
+/* State Display */
+.state-card {
+  max-width: 540px;
+  margin: 2rem auto;
+  text-align: center;
+  background: var(--surface-light);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.dark-mode .state-card {
+  background: #161b22;
+}
+
+/* Animations */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header-bg {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-header-bg img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .search-section {
+    flex-direction: column;
+  }
+}
